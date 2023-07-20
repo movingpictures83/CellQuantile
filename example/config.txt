@@ -1,2 +1,2 @@
 Prefix plugins/CellQuantile/example/
-Plugin CellQuantile inputfile parameters.txt outputfile c3.rds
+Plugin CellQuantile inputfile parameters.txt outputfile ./

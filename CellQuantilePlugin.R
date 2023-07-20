@@ -9,7 +9,7 @@ source("RIO.R")
 
 input <- function(inputfile) {
    pfix <- prefix()
-   parameters <- readParameters(inputfile)
+   parameters <<- readParameters(inputfile)
    celllines <<- parameters["celllines", 2]
    samplename <<- parameters["samplename", 2]
    myc <<- readRDS(paste(pfix, parameters["c", 2], sep="/"))
@@ -64,6 +64,6 @@ left_join(c3, q_df, by = c('name', 'rank')) %>%
 
 
 output <- function(outputfile) {
-
-saveRDS(c3, outputfile)
+write.table(c3$taxid, paste(outputfile, "taxa.tsv", sep="/"), row.names=F, col.names=F)
+saveRDS(c3, paste(outputfile, "c3.rds", sep="/"))
 }
