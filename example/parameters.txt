@@ -3,3 +3,4 @@ c2	c2.rds
 kr	kr.rds
 celllines	/biorg/data/SingleCell/cell.lines.txt
 sample	SRR9713132
+qtile	0.99

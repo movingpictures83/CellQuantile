@@ -15,6 +15,7 @@ input <- function(inputfile) {
    myc <<- readRDS(paste(pfix, parameters["c", 2], sep="/"))
    c2 <<- readRDS(paste(pfix, parameters["c2", 2], sep="/"))
    kr <<- readRDS(paste(pfix, parameters["kr", 2], sep="/"))
+   qtile <<- as.numeric(parameters["qtile", 2])
 }
 
 run <- function() {
@@ -52,7 +53,6 @@ ggplot(subset(df, name %in% c3$name), aes(rpmm, fill = study, ..scaled..)) +
                legend.text = element_text(color = 'black', size = 10),
                legend.position = 'bottom')
 
-	 qtile = 0.99
 q_df = cell.lines %>%
   group_by(name, rank) %>%
   summarize(CLrpmm = 10^quantile(log10(rpmm), qtile, na.rm = T),
